@@ -1,7 +1,5 @@
 ﻿using System;
-using System.Xml.Serialization;
 using UnityEngine;
-using UnityEngine.UI;
 
 namespace Main.Starter
 {

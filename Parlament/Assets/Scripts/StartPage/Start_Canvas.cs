@@ -1,8 +1,7 @@
-﻿using System;
-using UnityEngine;
+﻿using UnityEngine;
 using DG.Tweening;
-using System.Security.Policy;
 using UnityEngine.UI;
+using UnityEngine.SceneManagement;
 using System.Collections;
 
 namespace Main.Starter
@@ -90,7 +89,7 @@ namespace Main.Starter
         #region page 3
         private void StartAgitation()
         {
-            pageOutro.DOAnchorPos(new Vector2(-700, 0), 0.3f);
+            SceneManager.LoadScene("City");
         }
         #endregion
     }
