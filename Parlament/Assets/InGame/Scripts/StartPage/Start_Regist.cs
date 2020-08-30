@@ -60,9 +60,9 @@ namespace Main.Starter
 
 
                 if (hit.transform.CompareTag(Tags.Man))
-                    ChooseMan(hit.transform.gameObject);
+                    ChooseMan(Mains.StartR.schars.man);
                 else
-                    ChooseWoman(hit.transform.gameObject);
+                    ChooseWoman(Mains.StartR.schars.woman);
 
 
             }
@@ -73,6 +73,7 @@ namespace Main.Starter
             isAMan = false;
             PlayerPrefs.SetInt("sex", 0);
             cor = StartCoroutine(RotateCharacters(go));
+            Mains.StartR.settings.isMan = false;
 
         }
 
@@ -81,7 +82,7 @@ namespace Main.Starter
             PlayerPrefs.SetInt("sex", 1);
             isAMan = true;
             cor = StartCoroutine(RotateCharacters(go));
-
+            Mains.StartR.settings.isMan = true;
         }
 
         private IEnumerator RotateCharacters(GameObject go)

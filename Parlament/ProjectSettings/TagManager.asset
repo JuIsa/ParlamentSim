@@ -7,6 +7,9 @@ TagManager:
   - Woman
   - Man
   - Mains
+  - Quest
+  - Book
+  - EnterRoom
   layers:
   - Default
   - TransparentFX

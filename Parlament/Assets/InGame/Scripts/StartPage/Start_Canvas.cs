@@ -13,15 +13,21 @@ namespace Main.Starter
         public Text disclaimer1;
         public Text disclaimer2;
 
-
-        [Header("Page 1")]
-        public Button next_1;
-        public RectTransform pageCharacter;
-        [Header("Page 2")]
-        public Button next_2;
+        [Header("Page 2 name")]
+        public Button next_name;
         public RectTransform pageName;
         public InputField inputName;
-        [Header("Page 3")]
+
+        [Header("Page 3 char")]
+        public Button next_char;
+        public RectTransform pageCharacter;
+        public GameObject chars;
+
+        [Header("Page 4 party")]
+        public RectTransform pageParty;
+
+
+        [Header("Page 5 party")]
         public Button start;
         public RectTransform pageOutro;
         public Text txtPrepare;
@@ -29,9 +35,12 @@ namespace Main.Starter
         private void Awake()
         {
             Mains.StartR.eChooseCharacter += ButtonOn1;
+
             Mains.StartR.eConfirmCharacter += AfterCharacter;
 
             Mains.StartR.eConfirmName += AfterName;
+
+            Mains.StartR.eChooseRedParty += AfterParty;
 
             Mains.StartR.eStartAgitation += StartAgitation;
         }
@@ -53,40 +62,52 @@ namespace Main.Starter
         }
         #endregion
 
-        #region page 1
-        private void ButtonOn1()
-        {
-            next_1.gameObject.SetActive(true);
-        }
-
-        private void AfterCharacter()
-        {
-            pageCharacter.DOAnchorPos(new Vector2(-2000, 0), 0.3f);
-            pageName.DOAnchorPos(new Vector2(0, 0), 0.4f);
-        }
-
-        #endregion
-
-        #region page 2
+        #region page 2 name
         public void ShowButton()
         {
             if (inputName.text.Length > 2)
             {
-                next_2.gameObject.SetActive(true);
+                next_name.gameObject.SetActive(true);
             }
         }
 
         private void AfterName()
         {
             pageName.DOAnchorPos(new Vector2(-2000, 0), 0.3f);
-            pageOutro.DOAnchorPos(new Vector2(0, 0), 0.4f);
+            pageCharacter.DOAnchorPos(new Vector2(0, 0), 0.4f);
             txtPrepare.text = inputName.text + ", " + txtPrepare.text;
+            chars.transform.DOMoveX(0f, 0.4f);
         }
 
 
         #endregion
 
-        #region page 3
+        #region page 3 char
+        private void ButtonOn1()
+        {
+            next_char.gameObject.SetActive(true);
+        }
+
+        private void AfterCharacter()
+        {
+            pageCharacter.DOAnchorPos(new Vector2(-2000, 0), 0.3f);
+            chars.transform.DOMoveX(4f, 0.3f);
+            pageParty.DOAnchorPos(Vector2.zero, 0.4f);
+        }
+
+        #endregion
+
+        
+
+        #region page 4 party
+        private void AfterParty()
+        {
+            pageParty.DOAnchorPos(new Vector2(-2000, 0), 0.3f);
+            pageOutro.DOAnchorPos(Vector2.zero, 0.4f);
+        }
+        #endregion
+
+        #region page 5 start
         private void StartAgitation()
         {
             SceneManager.LoadScene("City");
