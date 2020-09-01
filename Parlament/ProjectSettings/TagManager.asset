@@ -10,6 +10,8 @@ TagManager:
   - Quest
   - Book
   - EnterRoom
+  - ExitRoom
+  - Comission
   layers:
   - Default
   - TransparentFX

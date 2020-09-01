@@ -1,7 +1,5 @@
 ﻿using DG.Tweening;
-using System.Collections;
-using System.Collections.Generic;
-using UnityEditor.Rendering.LookDev;
+
 using UnityEngine;
 
 public class City_Quest : MonoBehaviour
@@ -10,12 +8,19 @@ public class City_Quest : MonoBehaviour
     public GameObject books;
     public GameObject showWay;
 
+
+
     [Header("Windows/Suggest")]
+    public RectTransform intro;
     public RectTransform suggestQuest;
     [Header("Window/Finish")]
     public RectTransform final;
 
     
+    public void introOk()
+    {
+        intro.DOAnchorPos(new Vector2(0f, 2500f), 0.2f);
+    }
 
     public void StartShowingMessages()
     {

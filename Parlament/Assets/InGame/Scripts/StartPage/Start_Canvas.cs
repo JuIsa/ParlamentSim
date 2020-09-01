@@ -103,6 +103,7 @@ namespace Main.Starter
         private void AfterParty()
         {
             pageParty.DOAnchorPos(new Vector2(-2000, 0), 0.3f);
+            SceneManager.LoadScene("City");
             pageOutro.DOAnchorPos(Vector2.zero, 0.4f);
         }
         #endregion
